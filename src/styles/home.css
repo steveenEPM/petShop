@@ -1,0 +1,62 @@
+#id1 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.712)), url(https://cdn.shopify.com/s/files/1/0268/6861/files/10969529813_18259fba90_o_grande.jpg);
+    background-size: 100% 100%;
+}
+
+#id2 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.712)), url(https://wmg-pet.com/wp-content/uploads/2022/02/palatabilidad.png);
+}
+
+#id3 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.712)), url(https://static.dw.com/image/15885952_303.jpg);
+
+}
+
+#id4 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.712)), url(https://supercurioso.com/wp-content/uploads/2016/09/Perro-jugando.jpg);
+
+}
+
+#id1,
+#id2,
+#id3,
+#id4 {
+    background-size: 100% 100%;
+
+}
+
+
+.content {
+    visibility: hidden;
+}
+
+.contentV {
+    visibility: visible
+}
+
+.itemC {
+    opacity: .4;
+}
+
+.itemV {
+    opacity: 1;
+    animation-delay: 60s;
+}
+
+input:focus {
+    border-style: none;
+    border-color: aqua;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    background-color: white;
+    border-color: rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    border-radius: 12px;
+    border-style: none;
+
+}
+

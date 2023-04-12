@@ -1,0 +1,19 @@
+a {
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 7px 15px;
+    text-transform: capitalize;
+
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+
+}
+
+.filterAdd{
+    background-color: rgba(193, 33, 123, 0.15)
+}
+
+a label {
+    font-weight: 100;
+    text-transform: none;
+}

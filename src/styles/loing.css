@@ -1,0 +1,208 @@
+.Loing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr;
+}
+
+.Loing>form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    height: 85%;
+
+    padding: 5% 4%;
+
+
+}
+
+
+.Loing>form>h1 {
+
+    color: rgb(193, 33, 123);
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: oblique;
+
+
+}
+
+.Loing>form>span {
+    text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.Loing > form > a {
+    margin-top: 2%;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    cursor:pointer;
+    transform: translateX(25px);
+}
+
+.Loing > form > a:hover{
+    color: rgb(120, 21, 77)
+}
+.Loing>div {
+    background: rgb(120, 21, 77);
+    background: linear-gradient(0deg, rgba(120, 21, 77, 1) 36%, rgba(132, 23, 85, 1) 51%, rgba(145, 25, 93, 1) 64%, rgba(159, 27, 102, 1) 74%, rgba(182, 37, 119, 1) 100%);
+    min-height: 420px;
+    height: 665px;
+    max-height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.burbujas div {
+    border-radius: 10%;
+    position: absolute;
+    bottom: 0;
+    animation: animarburbujas 4s linear infinite;
+
+    z-index: 1;
+}
+
+.burbujas div:nth-child(1) {
+    width: 35px;
+    height: 45px;
+    left: 20px;
+    animation-duration: 4s;
+}
+
+.burbujas div:nth-child(2) {
+    width: 60px;
+    height: 55px;
+    left: 25%;
+    animation-duration: 8s;
+}
+
+.burbujas div:nth-child(3) {
+    width: 30px;
+    height: 27px;
+    left: 35%;
+    animation-duration: 5s;
+}
+
+.burbujas div:nth-child(4) {
+    width: 65px;
+    height: 60px;
+    left: 45%;
+    animation-duration: 10s;
+}
+
+.burbujas div:nth-child(5) {
+    width: 55px;
+    height: 50px;
+    left: 65%;
+    animation-duration: 6.5s;
+}
+
+.burbujas div:nth-child(6) {
+    width: 75px;
+    height: 50px;
+    left: 85%;
+    animation-duration: 6.5s;
+}
+
+
+
+
+
+@keyframes animarburbujas {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    3% {
+        width: 30px;
+        height: 27px;
+    }
+
+    50% {
+        margin-left: 20px;
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: rotate(90deg);
+        bottom: 100vh;
+        border-radius: 100%;
+        background-color: antiquewhite;
+    }
+}
+
+
+.Loing > form > .btnFormL {
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: rgb(80, 14, 51);
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: none;
+}
+
+.Loing > form > .btnFormL:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: rgb(233, 39, 149);
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+.Loing > form > .btnFormL:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+.Loing > form > .btnFormL span {
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Vollkorn', serif;
+    text-transform: capitalize;
+    font-weight: bold;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+.Loing > form > .btnFormL:hover span {
+    color: rgb(221, 221, 221);
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

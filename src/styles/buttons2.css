@@ -1,0 +1,22 @@
+.button {
+    padding-inline: 20px;
+    border-width: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-style: none;
+    border-left-style: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    background-color: inherit;
+    
+}
+
+.button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition-duration: 500ms;
+}
+

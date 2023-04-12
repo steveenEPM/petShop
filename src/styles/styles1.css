@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 500;
+}
+
+button {
+    display: flex;
+    cursor: pointer;
+}
+
+
+.btn-cart {
+    display: flex;
+    flex: 1;
+    padding-block: 12px;
+    background-color: #c1217b;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    border-style: none;
+    border-radius: 7px;
+
+}
+
+.btn-cart > i{
+    font-size: 18px;
+}
+.btn-cart > span{
+    font-weight: 700;
+    color: white;
+    font-size: 14px;
+}
