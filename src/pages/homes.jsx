@@ -7,27 +7,34 @@ import Search from "../container/search"
 import TopList from "../container/home/lista"
 import mypApi2 from "../hooks/axios2"
 import { listsItems } from "../utils/links"
+import Loading from '../container/loading'
 import '../styles/home.css'
 
 
 const Homes = () => {
 
-    const [element,setElement] = useState(undefined)
+    const [element, setElement] = useState(undefined)
 
     useMemo(() => {
-        mypApi2(listsItems,null).then(e =>{
+        mypApi2(listsItems, null).then(e => {
             setElement(e.data)
             console.log(e)
         })
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     }, [])
 
     return (
         <>
-            <BarraTop index={"marquet"} />
-            <Categorias />
-            <Search />
-            <TopList element={element}/>
+            {
+                element ? <>
+                    <BarraTop index={"marquet"} />
+                    <Categorias />
+                    <Search />
+                    <TopList element={element} />
+                </>
+                :<Loading/>
+            }
+
         </>
     )
 

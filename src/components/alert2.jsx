@@ -12,8 +12,10 @@ const sweetLoadig = (str) => {
         icon: 'error',
         title: str,
         showConfirmButton: true,
-        timer: 1500
+        timer: 5000
     })
+
+    return MySwal
 
 }
 

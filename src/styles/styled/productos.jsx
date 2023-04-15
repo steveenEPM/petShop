@@ -10,6 +10,17 @@ export const Container1 = styled.div`
     
     gap:30px;
 
+    @media screen and (max-width: 480px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow-y: scroll;
+        .itemList{
+            width: 60%;
+            margin:0% 20% ;
+        }
+    }
+
     
 `
 
@@ -47,6 +58,8 @@ export const Container2 = styled.div`
 
     }
 
-    
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
 
 `

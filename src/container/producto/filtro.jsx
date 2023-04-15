@@ -1,14 +1,12 @@
 import styled from "styled-components"
 import { useState, useTransition, useEffect } from "react"
-import axios from "axios"
 import { useNavigate, useParams, useLocation } from "react-router-dom"
-
 
 import { CheckItems, CheckItems2 } from "../../components/checkItems"
 import { Container2 } from "../../styles/styled/productos"
-import { contProduct } from "../../utils/links"
-import { Server2, Server } from "../../hooks/api1"
+import sweetLoadig from "../../components/alert2"
 import { producto, searchProd } from "../../utils/links"
+import mypApi2 from "../../hooks/axios2"
 
 export default function Filtro({ location, setElements, elements }) {
 
@@ -17,17 +15,10 @@ export default function Filtro({ location, setElements, elements }) {
 
     const params = useParams()
 
-
-
-
     /**Tipos Productos */
     const [alimento, setAlimento] = useState(0)
     const [manta, setManta] = useState(0)
-    const [backup, setBackup] = useState(undefined)
     const [asesorio, setAsesorio] = useState(0)
-
-
-
 
     /**Click en el filtro De animales */
     const onClick = (estado) => {
@@ -37,39 +28,17 @@ export default function Filtro({ location, setElements, elements }) {
 
     /**Click en el filtro de Productos */
     const onClick2 = (str) => {
-
-        setElements(undefined)
-
-        if ((location === "/productos/perro") || (location === "/productos/gato") || (location === "/productos/pajaro")) {
-            axios.post(producto, { animal: params.id }).then(e => {
-                const { data } = e
-                let aux = data.filter(index => index.tipo === str)
-                setElements(aux)
-            }).catch(err => {
-                console.log(err);
-            })
-        }
-        else if (location === "/productos") {
-            axios.post(producto).then(e => {
-                const { data } = e
-                let aux = data.filter(index => index.tipo === str)
-                setElements(aux)
-            }).catch(err => {
-                console.log(err);
-            })
-        }
-        else if (location.match("/search")) {
-            console.log("Sda")
-            axios.post(searchProd,{search:params.id}).then(e => {
-                const { data } = e
-                let aux = data.filter(index => index.tipo === str)
-                setElements(aux)
-            }).catch(err => {
-                console.log(err);
-            })
-        }
-
-
+        
+        mypApi2(producto).then(e => {
+            const { data } = e
+            
+            let aux = data.filter(element => {
+                if (element.tipo == str.toLocaleLowerCase()) return element
+            });
+            setElements(aux)
+        }).catch(err => {
+            sweetLoadig("Al parecer hubo un error vuelve a recargar o intenete mas tarder")
+        })
     }
 
 
@@ -107,15 +76,5 @@ export default function Filtro({ location, setElements, elements }) {
         </Container2>
     )
 
-}
-
-
-const Axios = (json, callback) => {
-    axios.post(contProduct, json)
-        .then(e => {
-            console.log(e)
-            callback(e.data)
-        })
-        .catch(err => console.log(err))
 }
 
