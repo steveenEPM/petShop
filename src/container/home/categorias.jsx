@@ -13,39 +13,38 @@ export default function Categorias() {
 
     const navigate = useNavigate()
 
-    const size = 200;
+    const size = 150;
 
     return (
         <Container>
             <span className="labelCat">
-                Compre nuestras categorías principales
+                Encuentra y conciente a tus mascotas
             </span>
             <div className="categoria">
                 <Item_Categoria
-                    uri={Comida} label={"perro"} width={size} height={size}
+                    icons={"fa-solid fa-dog "} label={"perro"}
                     onPress={() => navigate('/productos/perro')}
                 />
                 <Item_Categoria
-                    uri={Cama} label={"gato"} width={size} height={size}
+                    icons={"fa-solid fa-cat "} label={"gato"}
                     onPress={() => navigate('/productos/gato')}
                 />
                 <Item_Categoria
-                    uri={Jugetes} label={"pajaro"} width={size-50} height={size-65}
+                    icons={"fa-solid fa-dove"} label={"pajaro"}
                     onPress={() => navigate('/productos/pajaro')}
                 />
             </div>
         </Container>
     )
-
 }
 
 const Container = styled.div`
     display :flex ;
     flex-direction: column;
     margin-top: 2%;
-    margin-inline: 3%;
     gap:20px;
-    
+
+
     .labelCat{
         align-self: center;
         color: #c1217b;
@@ -58,7 +57,31 @@ const Container = styled.div`
         justify-content: center;
         display: flex;
         flex-direction: row;
-        gap:80px;
         border-width:1px ;
+        gap:50px;
+    }
+
+    @media screen  and (max-width: 450px){
+       overflow: hidden;
+       
+       .labelCat { 
+           justify-content: center;
+            font-size:14px ;
+        }
+
+        .categoria{
+            gap:10px;
+        }
+
+        .itemCategorys{
+            width: 80px;
+            height: 70px;
+
+            .fa-solid  {
+                font-size: 25px;
+            }
+
+            span { font-size:12px}
+        }
     }
 `

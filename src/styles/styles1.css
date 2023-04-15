@@ -3,6 +3,12 @@
     padding: 0px;
     font-family: 'Vollkorn', serif;
     font-weight: 500;
+    box-sizing: content-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -24,11 +30,13 @@ button {
 
 }
 
-.btn-cart > i{
+.btn-cart>i {
     font-size: 18px;
 }
-.btn-cart > span{
+
+.btn-cart>span {
     font-weight: 700;
     color: white;
     font-size: 14px;
 }
+

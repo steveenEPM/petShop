@@ -2,14 +2,11 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
 import { Items, Items2 } from '../../components/itemList'
-import Imgen from '../../assets/petShop.png'
 import { Server } from '../../hooks/api1'
-import { itemsProduc } from '../../utils/links'
 
 
-export default function TopList() {
+export default function TopList({ element }) {
 
-    const data = Server(itemsProduc)
 
     const navigate = useNavigate()
 
@@ -25,7 +22,7 @@ export default function TopList() {
             </div>
             <div className='container2'>
                 {
-                    data ? data.map((key, index) => {
+                    element ? element.map((key, index) => {
 
                         const onClick = () => {
                             navigate(`/comprar/${key._id}`)
@@ -94,6 +91,18 @@ const Elements = styled.div`
         display: grid;
         grid-template-columns: repeat(5,200px);
         gap:55px;
+    }
+
+    @media screen  and (max-width: 450px){
+        margin-inline: 12%;
+        .container2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
     }
 
 `

@@ -7,7 +7,7 @@ import '../styles/efectsButton.css'
 import logo from '../assets/petShop.png'
 import shopping from '../assets/shopping.png'
 import perfil from '../assets/perfilGato.png'
-
+import Dropdown from '../components/dropdown'
 
 
 export default function BarraTop({ index }) {
@@ -17,7 +17,7 @@ export default function BarraTop({ index }) {
 
     const location = useLocation()
 
-    const [cookies, setCookie,removeCookie] = useCookies(['@element']);
+    const [cookies, setCookie, removeCookie] = useCookies(['@element']);
 
 
     useEffect(() => {
@@ -26,55 +26,55 @@ export default function BarraTop({ index }) {
         }
     }, [])
 
-    const pathSele = (str) => {
-        document.querySelector(str).style.color = '#C1217B'
-    }
+    const pathSele = (str) =>  document.querySelector(str).style.color = '#C1217B'
 
     /**Envents onClick */
-    const iniciar = () => {
-        navigate('/loing')
-    }
+    const iniciar = () => navigate('/loing')
+    
 
-    const salir = ()=>{
-        removeCookie('@element',{path:"/"})
+    const salir = () => {
+        removeCookie('@element', { path: "/" })
         localStorage.removeItem('keys')
         navigate('/loing')
     }
 
+    const myPerfil = () =>navigate(`/perfil/${localStorage.getItem('keys')}`)
+
+    const indice = () => navigate('/')
+
+
     return (
         <Container >
             <div className='col1'>
-                <img src={logo} width={45} height={45} alt='icono' />
+                <img src={logo} width={45} height={45} alt='icono' className='icon' />
                 <label>pet shop</label>
             </div>
             <div className='col2'>
-                <button className='btn btn1' onClick={() => navigate('/')}>marquet</button>
+                <button className='btn btn1' onClick={indice}>marquet</button>
                 <button className='btn btn3'>quien soy</button>
             </div>
             <div className='col3'>
                 {
                     cookies['@element'] ?
                         <>
-                            <button onClick={() => navigate(`/perfil/${localStorage.getItem('keys')}`)}>
+                            <button onClick={myPerfil}>
                                 {localStorage.getItem("keys")}
-                                <img src={perfil} width={25} height={25} alt='perfil' />
-                            </button>
-                            <div style={{ height: 40, border: "1px solid rgba(0,0,0,.1)",borderRadius:190 }} />
+                                <i className="fa-solid fa-house"></i>                            </button>
+                            <div style={{ height: 40, border: "1px solid rgba(0,0,0,.1)", borderRadius: 190 }} />
                             <button onClick={salir}>
-                                <i className="fa-sharp fa-solid fa-circle-xmark" style={{ color: "#7f1e53" }} />
+                                cerrar seccion
+                                <i className="fa-solid fa-door-closed" style={{ color: "#7f1e53" }} />
                             </button>
                         </>
-
                         :
                         <button onClick={iniciar}>
                             Iniciar seccion
-                            <img src={perfil} width={25} height={25} alt='perfil' />
+                            <i className="fa-solid fa-arrow-right-to-bracket" style={{color: "7f1e50"}}/>
 
                         </button>
-
                 }
-
             </div>
+            <Dropdown cookies={cookies} iniciar={iniciar} salir={salir} myPerfil={myPerfil} indice={indice}/>
         </Container>
     )
 
@@ -86,9 +86,10 @@ const Container = styled.div`
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
-    padding-inline: 32px;
+    padding-inline: 12px;
     z-index: 1;
-    
+    overflow: hidden;
+
     background-color: rgba(193, 33, 123,.1);
     div{
         display:flex;
@@ -116,7 +117,9 @@ const Container = styled.div`
     .col1 {
         gap: 20px;
         align-items: center;
+   
         label {
+            
             font-family: 'Fredoka One', cursive;
             font-weight: 700;
             font-size: 32px;
@@ -132,5 +135,21 @@ const Container = styled.div`
             color: #C1217B;
         }
         
+    }
+
+    @media screen  and (max-width: 450px){
+
+        height: 40px;
+
+       .col1 > img,.col2, .col3{display:none}
+
+       .col1 label {
+             font-size: 25px;
+             width: 120px;
+       }
+
+       .dropDown{
+         visibility: visible;
+       }
     }
 `

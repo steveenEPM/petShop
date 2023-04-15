@@ -36,7 +36,7 @@ export default function Search() {
 
 const Container = styled.form`
 
-    margin: 3% 12%;
+    margin: 5% 12%;
 
 
     display: flex;
@@ -51,10 +51,18 @@ const Container = styled.form`
     input{
         flex: 1;
         padding: 1.5% 1.8%;
+        
         border-style: none;
         border-radius: 15px;
         outline: none;
     }
 
+    @media screen and (max-width: 450px){
+        input {
+            width: 85%;
+            padding: 2% 4%;
+            font-size: 10px;
+        }
+    }
 `
 
