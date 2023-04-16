@@ -9,6 +9,7 @@ import mypApi2 from "../hooks/axios2"
 import { listsItems } from "../utils/links"
 import Loading from '../container/loading'
 import '../styles/home.css'
+import axios from "axios"
 
 
 const Homes = () => {
@@ -16,11 +17,12 @@ const Homes = () => {
     const [element, setElement] = useState(undefined)
 
     useMemo(() => {
-        mypApi2(listsItems, null).then(e => {
-            setElement(e.data)
+        mypApi2(listsItems).then(e => {
             console.log(e)
+            setElement(e.data)
+        }).catch(err => {
+            console.log(err);
         })
-            .catch(err => console.log(err))
     }, [])
 
     return (
@@ -32,7 +34,7 @@ const Homes = () => {
                     <Search />
                     <TopList element={element} />
                 </>
-                :<Loading/>
+                    : <Loading />
             }
 
         </>

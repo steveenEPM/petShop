@@ -25,6 +25,8 @@ const Componest = styled.div`
     gap:1px;
     margin-block: 3px;
 
+
+
     input{
         padding: 12px 15px;
         border-radius: 17px;
@@ -40,6 +42,18 @@ const Componest = styled.div`
         font-weight: 500;
         text-transform: capitalize;
         color: rgba(0,0,0,.5);
+    }
+
+    @media screen and (max-width:450px){
+        width: 100%;
+        label {
+            font-size: 13px;
+        }
+
+        input {
+            padding: 7px 12px;
+            font-size: 13px;
+        }
     }
 
 `

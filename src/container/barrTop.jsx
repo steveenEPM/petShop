@@ -26,11 +26,11 @@ export default function BarraTop({ index }) {
         }
     }, [])
 
-    const pathSele = (str) =>  document.querySelector(str).style.color = '#C1217B'
+    const pathSele = (str) => document.querySelector(str).style.color = '#C1217B'
 
     /**Envents onClick */
     const iniciar = () => navigate('/loing')
-    
+
 
     const salir = () => {
         removeCookie('@element', { path: "/" })
@@ -38,7 +38,7 @@ export default function BarraTop({ index }) {
         navigate('/loing')
     }
 
-    const myPerfil = () =>navigate(`/perfil/${localStorage.getItem('keys')}`)
+    const myPerfil = () => navigate(`/perfil/${localStorage.getItem('keys')}`)
 
     const indice = () => navigate('/')
 
@@ -69,12 +69,12 @@ export default function BarraTop({ index }) {
                         :
                         <button onClick={iniciar}>
                             Iniciar seccion
-                            <i className="fa-solid fa-arrow-right-to-bracket" style={{color: "7f1e50"}}/>
+                            <i className="fa-solid fa-arrow-right-to-bracket" style={{ color: "7f1e50" }} />
 
                         </button>
                 }
             </div>
-            <Dropdown cookies={cookies} iniciar={iniciar} salir={salir} myPerfil={myPerfil} indice={indice}/>
+            <Dropdown cookies={cookies} iniciar={iniciar} salir={salir} myPerfil={myPerfil} indice={indice} />
         </Container>
     )
 
@@ -87,7 +87,9 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding-inline: 12px;
+    
     z-index: 1;
+;
     overflow: hidden;
 
     background-color: rgba(193, 33, 123,.1);
@@ -140,7 +142,7 @@ const Container = styled.div`
     @media screen  and (max-width: 450px){
 
         height: 40px;
-
+    
        .col1 > img,.col2, .col3{display:none}
 
        .col1 label {
@@ -151,5 +153,9 @@ const Container = styled.div`
        .dropDown{
          visibility: visible;
        }
+    }
+
+    @media screen  and (max-width: 790px) and (min-width: 500px){
+        width: 100%;
     }
 `

@@ -94,13 +94,19 @@ const Elements = styled.div`
     }
 
     @media screen  and (max-width: 450px){
-        margin-inline: 12%;
         .container2{
+            width: 100%;
+          
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             gap: 20px;
+
+            .itemList{
+                width: 80%;
+                margin-inline: 8%;
+            }
         }
 
     }

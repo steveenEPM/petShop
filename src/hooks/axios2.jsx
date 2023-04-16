@@ -3,7 +3,7 @@ const mypApi2 = (url, params) => {
     const instancia = axios({
         method: 'post',
         url: url,
-        baseURL: 'https://petshop2.onrender.com',
+        baseURL: 'http://localhost:3030',
         data: params,
         timeout: 10000,
     })

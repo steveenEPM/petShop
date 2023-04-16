@@ -51,7 +51,6 @@ export default function Descripcion({ element, setElement }) {
                     Comprar
                 </button>
             </div>
-
         </div>
     )
 

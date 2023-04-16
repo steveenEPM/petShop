@@ -11,7 +11,7 @@ export default function Perfil({ usuario, fecha, email, mobile }) {
                 <i className="fa-solid fa-cake-candles" style={{ color: "rgba(0,0,0,.5)" }} />
                 {fecha}
             </span>
-            <div style={{display:"flex",flexDirection:"row",gap:70,marginTop:12}}>
+            <div className="contactos">
                 <span className="etiq des">
                     <i className="fa-solid fa-envelope" style={{ color: "#595959" }} />
                     {email}
@@ -64,4 +64,26 @@ const Container = styled.div`
         color: rgba(0,0,0,1);
     }
 
+    .contactos{
+        display:flex;
+        flex-direction:row;
+        gap:70px;
+        margin-top:12px;
+    }
+
+
+    @media screen and (max-width:450px){
+        
+        .contactos{
+            display:flex;
+            flex-direction: column;
+            align-self: flex-start;
+            gap:8px;
+            padding-inline: 20px;
+            span {
+                font-size:14px;
+                
+            }
+        }
+    }
 `

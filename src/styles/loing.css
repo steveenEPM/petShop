@@ -1,7 +1,7 @@
 .Loing {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .Loing>form {
@@ -9,12 +9,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    height: 85%;
-
-    padding: 5% 4%;
-
-
+    padding: 7% 4%;
+    flex: 1;
 }
+
 
 
 .Loing>form>h1 {
@@ -35,27 +33,29 @@
     text-transform: capitalize;
 }
 
-.Loing > form > a {
+.Loing>form>a {
     margin-top: 2%;
     align-self: center;
     font-size: 18px;
     text-align: center;
     font-weight: bold;
     font-style: italic;
-    cursor:pointer;
+    cursor: pointer;
     transform: translateX(25px);
 }
 
-.Loing > form > a:hover{
+.Loing>form>a:hover {
     color: rgb(120, 21, 77)
 }
+
 .Loing>div {
     background: rgb(120, 21, 77);
     background: linear-gradient(0deg, rgba(120, 21, 77, 1) 36%, rgba(132, 23, 85, 1) 51%, rgba(145, 25, 93, 1) 64%, rgba(159, 27, 102, 1) 74%, rgba(182, 37, 119, 1) 100%);
     min-height: 420px;
-    height: 665px;
-    max-height: 720px;
+    height: 668px;
+
     display: flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -142,7 +142,7 @@
 }
 
 
-.Loing > form > .btnFormL {
+.Loing>form>.btnFormL {
     margin-top: 50px;
     position: relative;
     display: flex;
@@ -156,7 +156,7 @@
     border: none;
 }
 
-.Loing > form > .btnFormL:after {
+.Loing>form>.btnFormL:after {
     content: " ";
     width: 0%;
     height: 100%;
@@ -166,13 +166,13 @@
     right: 0;
 }
 
-.Loing > form > .btnFormL:hover::after {
+.Loing>form>.btnFormL:hover::after {
     right: auto;
     left: 0;
     width: 100%;
 }
 
-.Loing > form > .btnFormL span {
+.Loing>form>.btnFormL span {
     text-align: center;
     text-decoration: none;
     font-family: 'Vollkorn', serif;
@@ -188,7 +188,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.Loing > form > .btnFormL:hover span {
+.Loing>form>.btnFormL:hover span {
     color: rgb(221, 221, 221);
     animation: scaleUp 0.3s ease-in-out;
 }
@@ -204,5 +204,11 @@
 
     100% {
         transform: scale(1);
+    }
+}
+
+@media screen and (max-width:450px) {
+    .Loing>div {
+        display: none;
     }
 }

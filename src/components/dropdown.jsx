@@ -27,8 +27,8 @@ export default function Dropdown({ cookies, iniciar, salir, myPerfil, indice }) 
                         <>
                             <button onClick={myPerfil}>
                                 {localStorage.getItem("keys")}
-                                <i className="fa-solid fa-house"></i>                            </button>
-                            <div style={{ height: 40, border: "1px solid rgba(0,0,0,.1)", borderRadius: 190 }} />
+                                <i className="fa-solid fa-house" style={{ color: "#7f1e53" }}></i>
+                            </button>
                             <button onClick={salir}>
                                 cerrar seccion
                                 <i className="fa-solid fa-door-closed" style={{ color: "#7f1e53" }} />
@@ -37,7 +37,7 @@ export default function Dropdown({ cookies, iniciar, salir, myPerfil, indice }) 
                         :
                         <button onClick={iniciar}>
                             Iniciar seccion
-                            <i className="fa-solid fa-arrow-right-to-bracket" style={{ color: "7f1e50" }} />
+                            <i className="fa-solid fa-arrow-right-to-bracket" style={{ color: "#7f1e50" }} />
 
                         </button>
                 }
@@ -59,6 +59,10 @@ const Element = styled.div`
     display: block;
     justify-content:flex-end;
     
+    button{
+        border-bottom: 1px solid rgba(0,0,0,.3);
+        
+    }
     
     
     .burger {

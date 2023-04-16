@@ -37,4 +37,15 @@ const Componet = styled.a`
         color: rgba(0,0,0,.6);
     }
 
+    @media screen and (max-width:450px){
+        padding: 2% 12px;
+        width: 100%;
+        gap:1px;
+        i , span {
+            font-size: 13px;
+        }
+
+        i{display:none;}
+    }
+
 `

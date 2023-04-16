@@ -66,8 +66,7 @@ export default function Formulario({ loading, setLoading }) {
                 name={"correo"} onChange={onChange} error={errUser} />
 
             <div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+                <div className="contrasenas" >
                     <Inputs label={"Contraseña"} type={"password"} max={15} placeholder={"******"}
                         name={"password"} onChange={onChange} error={errPass} />
                     <Inputs label={"Repetir Contraseña"} type={"password"} max={15} placeholder={"******"}
@@ -78,17 +77,20 @@ export default function Formulario({ loading, setLoading }) {
                 }
             </div>
 
-            <div style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "center", justifyContent: "center", marginBlock: '3%' }}>
-                <span style={{ fontSize: "17px", color: "rgba(0,0,0,.8)" }}>Sexo</span>
-                <RadioButtons classI={"fa-solid fa-mars"} names={"hombre"} color={"#0000ff"} sexo={user.sexo} onClick={onChange2}
-                    colorS={"#92FFFB"}
-                />
-                <RadioButtons classI={"fa-solid fa-venus"} names={"mujer"} color={"#ff0ade"} sexo={user.sexo} onClick={onChange2}
-                    colorS={"#FFDBEA"}
-                />
+            <div className="radios" >
+                <span >Sexo</span>
+                <div >
+                    <RadioButtons classI={"fa-solid fa-mars"} names={"hombre"} color={"#0000ff"} sexo={user.sexo} onClick={onChange2}
+                        colorS={"#92FFFB"}
+                    />
+                    <RadioButtons classI={"fa-solid fa-venus"} names={"mujer"} color={"#ff0ade"} sexo={user.sexo} onClick={onChange2}
+                        colorS={"#FFDBEA"}
+                    />
+                </div>
             </div>
+
             <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: "12px" }}>
-                <span style={{ color: "rgba(0,0,0,.8)", fontSize: 17 }}>
+                <span style={{ color: "rgba(0,0,0,.7)", fontSize: 17 }}>
                     Fecha nacimineto
                 </span>
                 <input type="date" style={{ padding: "1.5% 2%", borderRadius: 12, borderStyle: "none", border: "1px solid rgba(0,0,0,.5)" }}

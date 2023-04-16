@@ -6,6 +6,7 @@ import Informacion from "./pages/informacion";
 import Loing from "./pages/loing";
 import SingIn from "./pages/singIn";
 import MyPerfil from "./pages/perfil";
+import NotFound from "./pages/404";
 
 function App() {
 
@@ -13,11 +14,12 @@ function App() {
     {
       path: '/',
       element: <Homes />,
-
+      errorElement:<NotFound/>
     },
     {
       path: '/productos',
       element: <Productos />,
+      errorElement:<NotFound/>,
       children: [
         {
           path: '/productos/:id',
@@ -31,10 +33,12 @@ function App() {
     {
       path: '/comprar/:ide',
       element: <Informacion />,
+      errorElement:<NotFound/>
     },
     {
       path: '/loing',
-      element: <Loing />
+      element: <Loing />,
+      errorElement:<NotFound/>
     },
     {
       path: '/singIng',
@@ -43,6 +47,7 @@ function App() {
     {
       path: '/perfil',
       element: <MyPerfil />,
+      errorElement:<NotFound/>,
       children:[
         {
           path:'/perfil/:id',

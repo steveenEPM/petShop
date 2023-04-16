@@ -1,11 +1,11 @@
 import { useLocation, useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import {  useMemo ,useState} from "react"
 
 import BarraTop from "../container/barrTop"
 import Imagenes from "../container/informacion/imagenes"
 import Descripcion from "../container/informacion/descripcion"
 import { inforProducto } from "../utils/links"
+import mypApi from "../hooks/axios"
 import Loading from "../container/loading"
 import "../styles/informacion.css"
 
@@ -18,11 +18,11 @@ export default function Informacion() {
 
     const location = useLocation()
 
-    useEffect(() => {
+    useMemo(() => {
 
         const ide = params.ide
-
-        axios.post(inforProducto, { id: ide })
+        console.log(ide)
+        mypApi(inforProducto, { id: ide })
             .then(e => {
                 setElement(e.data)
             })
@@ -38,7 +38,7 @@ export default function Informacion() {
             <BarraTop index={"marquet"} />
             {
                 element ?
-                    <div className="Contenedor">
+                    <div className="Informacion">
                         <Imagenes url={element.url} />
                         <Descripcion element={element} setElement={setElement}/>
                     </div>

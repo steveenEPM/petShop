@@ -10,10 +10,6 @@ export default function SingIn() {
 
     const [loading, setLoading] = useState(false)
 
-
-  
-
-
     return (
         <>
             {

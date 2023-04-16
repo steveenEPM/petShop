@@ -91,6 +91,11 @@ const Componet = styled.div`
             justify-content: center;
         }
     }
+
+    @media screen and (max-width: 450px) {
+        align-items: flex-start;
+        
+    }
    
 
 `
