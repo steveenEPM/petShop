@@ -5,7 +5,7 @@ const mypApi = (url, params, headerKey) => {
     const instancia = axios({
         method: 'post',
         url: url,
-        baseURL: 'http://10.50.50.241:3030',
+        baseURL: 'https://petshop3.onrender.com',
         data: params,
         headers: { 'key': headerKey },
         timeout: 10000
