@@ -5,7 +5,7 @@ const mypApi2 = (url, params) => {
         url: url,
         baseURL: 'https://petshop3.onrender.com',
         data: params,
-        timeout: 10000,
+        timeout: 40000,
     })
 
     return instancia
