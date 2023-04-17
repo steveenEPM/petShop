@@ -24,7 +24,7 @@ export const Container1 = styled.div`
 
         @media screen and (max-width:1050px) and (min-width:450px) {
                 display: grid;
-                grid-template-columns: repeat(3,200px);
+                grid-template-columns: repeat(3,1fr);
             
         }
 

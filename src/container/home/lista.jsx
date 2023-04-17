@@ -105,28 +105,22 @@ const Elements = styled.div`
             gap: 20px;
 
             .itemList{
-                width: 80%;
-                margin-inline: 8%;
+                width: 230px;
+              
             }
         }
 
     }
 
-    @media screen and (max-width:1050px) and (min-width:450px) {
+    @media screen and (max-width:1000px) and (min-width:450px) {
         .container2{
              display: grid;
-            grid-template-columns: repeat(4,200px);
+            grid-template-columns: repeat(3,1fr);
         }
                
             
     }
-    @media screen and (max-width:700px)  {
-        .container2{
-           
-        }
-               
-            
-    }
+    
 
 
 `

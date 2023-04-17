@@ -84,4 +84,13 @@ const Container = styled.div`
             span { font-size:12px}
         }
     }
+
+    @media screen and (max-width:1000px) and (min-width:450px) {
+        .itemCategorys{
+           width: 120px;
+           height: 100px;
+        }
+               
+            
+    }
 `
