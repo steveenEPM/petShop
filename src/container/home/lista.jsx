@@ -20,24 +20,25 @@ export default function TopList({ element }) {
                     Ver todos
                 </button>
             </div>
-            <div className='container2'>
+            <div className='container2 productItems'>
                 {
                     element ? element.map((key, index) => {
 
                         const onClick = () => {
                             navigate(`/comprar/${key._id}`)
                         }
-
-                        return (
-                            <div key={index}>
-                                <Items
-                                    src={key.url}
-                                    descripcion={key.nombre}
-                                    precio={key.precio}
-                                    onClick={onClick}
-                                />
-                            </div>
-                        )
+                        if (index < 10) {
+                            return (
+                                <div key={index}>
+                                    <Items
+                                        src={key.url}
+                                        descripcion={key.nombre}
+                                        precio={key.precio}
+                                        onClick={onClick}
+                                    />
+                                </div>
+                            )
+                        }
                     })
                         : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((key) => <div key={key}><Items2 key={key} /> </div>)
 
@@ -89,14 +90,14 @@ const Elements = styled.div`
     .container2{
         
         display: grid;
-        grid-template-columns: repeat(5,200px);
+        grid-template-columns: repeat(5,1fr);
         gap:55px;
     }
 
     @media screen  and (max-width: 450px){
         .container2{
             width: 100%;
-          
+            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -110,5 +111,22 @@ const Elements = styled.div`
         }
 
     }
+
+    @media screen and (max-width:1050px) and (min-width:450px) {
+        .container2{
+             display: grid;
+            grid-template-columns: repeat(4,200px);
+        }
+               
+            
+    }
+    @media screen and (max-width:700px)  {
+        .container2{
+           
+        }
+               
+            
+    }
+
 
 `

@@ -1,6 +1,6 @@
 import { useCookies } from "react-cookie"
-import { useState, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState, useMemo,useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
 import BarraTop from "../container/barrTop"
 import ImagenFondo from "../container/MyPerfl/imgFondo"
@@ -12,20 +12,14 @@ import myApi from '../hooks/axios'
 
 export default function MyPerfil() {
     const [cookies, setCookie] = useCookies(['@element']);
-    const [user, setUser] = useState(undefined)
+    const [user, setUser] = useState("undefined")
     const navigate = useNavigate()
-
-    useMemo(() => {
+    const location = useLocation()
+    useEffect(() => {
 
         if(!cookies["@element"]) return navigate('/')
-
-        myApi('/usuario/getPerfil', undefined, cookies["@element"])
-            .then(e => {
-                setUser(e.data)
-                console.log(e.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
+        console.log("d")
+    }, [location])
 
     return (
         <>
@@ -34,7 +28,7 @@ export default function MyPerfil() {
                     <BarraTop />
                     <div style={{ display: "flex", flexDirection: "column" }}>
                         <ImagenFondo />
-                        <Perfil usuario={user.usuario} fecha={user.fecha} email={user.correo} mobile={"+593 098 212 12 96"} />
+                        <Perfil usuario={"Steveen"} fecha={"20/02/2022"} email={"steveen.pm@gmail.com"} mobile={"+593 098 212 12 96"} />
                     </div>
                 </>
                     : <Loading />

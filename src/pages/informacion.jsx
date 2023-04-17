@@ -7,6 +7,7 @@ import Descripcion from "../container/informacion/descripcion"
 import { inforProducto } from "../utils/links"
 import mypApi from "../hooks/axios"
 import Loading from "../container/loading"
+import { listPros } from "../utils/productos"
 import "../styles/informacion.css"
 
 
@@ -21,14 +22,8 @@ export default function Informacion() {
     useMemo(() => {
 
         const ide = params.ide
-        console.log(ide)
-        mypApi(inforProducto, { id: ide })
-            .then(e => {
-                setElement(e.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        const aux = listPros.find(e => e._id == ide)
+        setElement(aux)
     }, [location])
 
 

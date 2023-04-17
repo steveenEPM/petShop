@@ -13,7 +13,7 @@ export default function Contenido({ lista, indice , maps}) {
 
     return (
         <div>
-            <Container1>
+            <Container1 className='productItems'>
                 {
                     lista ? lista.map((key, index) => {
 
@@ -23,7 +23,7 @@ export default function Contenido({ lista, indice , maps}) {
 
                         let numero = index / 20
 
-                        if (index < 20) {
+                        if (index < 40) {
                             return (
                                 <div key={index}>
                                     <Items

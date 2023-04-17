@@ -9,6 +9,7 @@ import mypApi2 from "../hooks/axios2"
 import { listsItems } from "../utils/links"
 import Loading from '../container/loading'
 import '../styles/home.css'
+import { listPros } from "../utils/productos"
 import axios from "axios"
 
 
@@ -16,7 +17,9 @@ const Homes = () => {
 
     const [element, setElement] = useState(undefined)
 
+    /*
     useMemo(() => {
+        console.log(listsItems)
         mypApi2(listsItems).then(e => {
             console.log(e)
             setElement(e.data)
@@ -24,7 +27,9 @@ const Homes = () => {
             console.log(err);
         })
     }, [])
+*/
 
+    useMemo(()=> setElement(listPros),[])
     return (
         <>
             {

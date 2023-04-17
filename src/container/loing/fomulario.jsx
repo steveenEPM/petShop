@@ -20,20 +20,17 @@ export default function Formulario({ loading, setLoading }) {
 
         const { correo, password } = user
 
-        setLoading(true)
-        mypApi2('/usuario/logIn', { correo, password }).then(e => {
-            console.log(e.data)
-
-            setCookie('@element', e.data.token, { path: '/' })
-            localStorage.setItem("keys", e.data.usuario)
+        new Promise ((resolve,reject)=>{
+            setLoading(true)
+            if((correo === "admin@gmail.com") && (password === "admin")) resolve(true) 
+            else reject("correo y/o contraseña incorrectos")
+        }).then(e =>{
+            setCookie("@element","admin",{path:"/"})
+            localStorage.setItem('keys','admin')
             navigate('/')
+        }).finally(()=>setLoading(false))
+        .catch(err=> sweetLoadig(err))
 
-        })
-            .finally(() => setLoading(false))
-            .catch(err => {
-                setLoading(false)
-                sweetLoadig(err.response.data)
-            })
     }
 
 
@@ -63,9 +60,7 @@ export default function Formulario({ loading, setLoading }) {
             <button type="submit" className="btnFormL">
                 <span>confirmar</span>
             </button>
-            <a onClick={() => navigate('/singIng')}>
-                deseas registrarte
-            </a>
+
         </form>
     )
 

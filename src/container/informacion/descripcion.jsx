@@ -17,15 +17,8 @@ export default function Descripcion({ element, setElement }) {
 
     const onClick = () => {
         if (!cookies["@element"]) return navigate('/loing')
+        return sweetLoadig()
 
-
-        myApi('usuario/setComprar', { cantidad, precio: element.precio, estado: false, idProducto: element._id }, cookies["@element"])
-            .then(e => sweetLoadig())
-            .catch(error => {
-                console.log(error.response)
-                let { data } = error.response
-                if (data === "Aceso denegado") navigate('/loing')
-            })
     }
 
 
