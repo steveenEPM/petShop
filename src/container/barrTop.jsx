@@ -51,7 +51,7 @@ export default function BarraTop({ index }) {
             </div>
             <div className='col2'>
                 <button className='btn btn1' onClick={indice}>marquet</button>
-                <button className='btn btn3'>quien soy</button>
+                <button className='btn btn3' onClick={índice}>quien soy</button>
             </div>
             <div className='col3'>
                 {
